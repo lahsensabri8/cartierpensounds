@@ -4,23 +4,23 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Cartier Pen Sounds</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --bg:#080808;
-  --surface:#0f0f0f;
-  --surface2:#141414;
-  --border:#1e1e1e;
-  --text:#d0d0d0;
-  --muted:#444;
+  --surface:#111111;
+  --surface2:#181818;
+  --border:#2a2a2a;
+  --text:#e0e0e0;
+  --muted:#888;
   --accent:#ffffff;
-  --dim:#777;
+  --dim:#aaa;
 }
 body{
   background:var(--bg);
   color:var(--text);
-  font-family:'DM Mono',monospace;
+  font-family:'Outfit',sans-serif;
   font-size:14px;
   min-height:100vh;
   display:flex;
@@ -35,14 +35,15 @@ nav{
   padding:1.5rem 3rem;
   border-bottom:1px solid var(--border);
 }
-.nav-logo img{height:28px;width:auto;}
+.nav-logo img{height:38px;width:auto;filter:brightness(1.2);}
 .nav-contact{
-  font-size:0.6rem;
-  letter-spacing:0.2em;
+  font-size:0.7rem;
+  letter-spacing:0.15em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--dim);
   text-decoration:none;
   transition:color 0.2s;
+  font-weight:500;
 }
 .nav-contact:hover{color:var(--accent);}
 
@@ -58,16 +59,16 @@ nav{
   width:100%;
 }
 .hero-logo{margin-bottom:3rem;}
-.hero-logo img{height:70px;width:auto;}
+.hero-logo img{height:80px;width:auto;filter:brightness(1.15);}
 .hero-line1{
-  font-family:'Syne',sans-serif;
+  font-family:'Outfit',sans-serif;
   font-size:clamp(1rem,2.5vw,1.4rem);
   font-weight:400;
   color:var(--text);
   margin-bottom:0.4rem;
 }
 .hero-line2{
-  font-family:'DM Mono',monospace;
+  font-family:'Outfit',sans-serif;
   font-size:0.75rem;
   color:var(--dim);
   letter-spacing:0.05em;
@@ -89,21 +90,22 @@ nav{
   margin-bottom:1px;
 }
 .np-label{
-  font-size:0.55rem;
-  letter-spacing:0.25em;
+  font-size:0.6rem;
+  letter-spacing:0.2em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--dim);
   margin-bottom:0.75rem;
+  font-weight:500;
 }
 .np-title{
-  font-family:'Syne',sans-serif;
+  font-family:'Outfit',sans-serif;
   font-size:1.2rem;
   font-weight:600;
   color:var(--accent);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   margin-bottom:0.2rem;
 }
-.np-artist{font-size:0.65rem;color:var(--muted);}
+.np-artist{font-size:0.7rem;color:var(--dim);}
 .prog-wrap{
   width:100%;height:1px;
   background:var(--border);
@@ -111,7 +113,7 @@ nav{
   position:relative;
 }
 .prog-fill{height:100%;background:var(--accent);width:0%;transition:width 0.1s linear;pointer-events:none;}
-.time-row{display:flex;justify-content:space-between;font-size:0.58rem;color:var(--muted);}
+.time-row{display:flex;justify-content:space-between;font-size:0.62rem;color:var(--dim);}
 .controls{display:flex;align-items:center;gap:1.25rem;margin-top:1.25rem;}
 .ctrl{background:none;border:none;color:var(--muted);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;transition:color 0.15s;}
 .ctrl:hover{color:var(--accent);}
@@ -160,7 +162,7 @@ nav{
 .track.active{background:#111;}
 .track.active .t-num{display:none;}
 .track.active .t-eq{display:flex;}
-.t-num{font-size:0.58rem;color:var(--muted);text-align:center;}
+.t-num{font-size:0.62rem;color:var(--dim);text-align:center;}
 .t-eq{display:none;align-items:center;justify-content:center;gap:2px;}
 .t-eq span{display:block;width:2px;background:var(--accent);animation:eq 0.8s ease infinite;}
 .t-eq span:nth-child(1){height:8px;animation-delay:0s;}
@@ -168,14 +170,14 @@ nav{
 .t-eq span:nth-child(3){height:6px;animation-delay:0.3s;}
 .t-info{overflow:hidden;}
 .t-title{
-  font-family:'Syne',sans-serif;
+  font-family:'Outfit',sans-serif;
   font-size:0.76rem;font-weight:600;
   color:var(--text);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .track.active .t-title{color:var(--accent);}
-.t-artist{font-size:0.6rem;color:var(--muted);margin-top:0.1rem;}
-.t-dur{font-size:0.6rem;color:var(--muted);white-space:nowrap;}
+.t-artist{font-size:0.62rem;color:var(--dim);margin-top:0.1rem;}
+.t-dur{font-size:0.62rem;color:var(--dim);white-space:nowrap;}
 
 /* FOOTER */
 footer{
@@ -188,13 +190,14 @@ footer{
   margin:0 auto;
   width:100%;
 }
-footer p{font-size:0.55rem;color:var(--muted);letter-spacing:0.1em;}
+footer p{font-size:0.62rem;color:var(--dim);letter-spacing:0.05em;}
 .coffee{
-  font-size:0.55rem;
+  font-size:0.68rem;
   letter-spacing:0.1em;
-  color:var(--muted);
+  color:var(--dim);
   text-decoration:none;
   transition:color 0.2s;
+  font-weight:500;
 }
 .coffee:hover{color:var(--accent);}
 
@@ -263,7 +266,7 @@ footer p{font-size:0.55rem;color:var(--muted);letter-spacing:0.1em;}
 <script>
 const tracks = [
   { title: "Olha Explosão", artist: "Cartier Pen Sounds", src: "" },
-  { title: "Axel F x Headlines", artist: "Harold Faltermeyer", src: "https://dl.dropboxusercontent.com/scl/fi/s7cvc81avnk0z53tespg4/AxelFH.mp3?rlkey=h8e94lfgulsi5sqf6082gw8tc&st=cxe48o30&dl=1" },
+  { title: "Track Title", artist: "Original Artist", src: "" },
   { title: "Track Title", artist: "Original Artist", src: "" },
   { title: "Track Title", artist: "Original Artist", src: "" },
   { title: "Track Title", artist: "Original Artist", src: "" },
@@ -285,11 +288,25 @@ const tTot = document.getElementById("t-tot");
 const vol = document.getElementById("vol");
 
 let cur = 0, playing = false;
+const durations = new Array(tracks.length).fill("—");
 
 function fmt(s){
-  if(!s||isNaN(s))return"0:00";
+  if(!s||isNaN(s))return"—";
   return Math.floor(s/60)+":"+(Math.floor(s%60)+"").padStart(2,"0");
 }
+
+// Preload durations for all tracks silently
+tracks.forEach((t,i)=>{
+  if(!t.src)return;
+  const a=new Audio();
+  a.preload="metadata";
+  a.addEventListener("loadedmetadata",()=>{
+    durations[i]=fmt(a.duration);
+    const el=document.querySelector(`.track:nth-child(${i+1}) .t-dur`);
+    if(el)el.textContent=durations[i];
+  });
+  a.src=t.src;
+});
 
 function buildList(){
   playlist.innerHTML="";
@@ -303,7 +320,7 @@ function buildList(){
         <div class="t-title">${t.title}</div>
         <div class="t-artist">${t.artist}</div>
       </div>
-      <div class="t-dur">${fmt(audio.duration)||"—"}</div>`;
+      <div class="t-dur">${durations[i]}</div>`;
     el.addEventListener("click",()=>load(i,true));
     playlist.appendChild(el);
   });
