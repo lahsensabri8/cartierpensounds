@@ -107,10 +107,13 @@ nav{
 }
 .np-artist{font-size:0.9rem;color:var(--dim);}
 .prog-wrap{
-  width:100%;height:1px;
+  width:100%;height:2px;
   background:var(--border);
   cursor:pointer;margin:1.25rem 0 0.5rem;
   position:relative;
+  padding:8px 0;          /* expands clickable area vertically */
+  box-sizing:content-box;
+  background-clip:content-box; /* keeps the colored bar thin */
 }
 .prog-fill{height:100%;background:var(--accent);width:0%;transition:width 0.1s linear;pointer-events:none;}
 .time-row{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--dim);}
