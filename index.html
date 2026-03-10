@@ -331,13 +331,17 @@ function seek(e) {
   const rect = progWrap.getBoundingClientRect();
   const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
   const pct = x / rect.width;
-  audio.currentTime = pct * audio.duration;
   progFill.style.width = (pct * 100) + '%';
+  audio._seekPct = pct;
 }
 
-progWrap.addEventListener('mousedown', (e) => { dragging = true; seek(e); });
-document.addEventListener('mousemove', (e) => { if (dragging) seek(e); });
-document.addEventListener('mouseup', () => { dragging = false; });
+document.addEventListener('mouseup', () => {
+  if (dragging && audio._seekPct !== undefined) {
+    audio.currentTime = audio._seekPct * audio.duration;
+    audio._seekPct = undefined;
+  }
+  dragging = false;
+});
   
 let cur = 0, playing = false;
 const durations = new Array(tracks.length).fill("—");
