@@ -111,31 +111,32 @@ nav{
   background:var(--border);
   cursor:pointer;margin:1.25rem 0 0.5rem;
   position:relative;
-  padding:8px 0;          /* expands clickable area vertically */
+  padding:8px 0;
   box-sizing:content-box;
-  background-clip:content-box; /* keeps the colored bar thin */
+  background-clip:content-box;
 }
-.prog-fill {
-  height: 100%;
-  background: var(--accent);
-  width: 0%;
-  transition: width 0.1s linear;
-  pointer-events: none;
-  position: relative; /* ADDED */
+.prog-fill{height:100%;background:var(--accent);width:0%;transition:width 0.1s linear;pointer-events:none;position:relative;}
+.prog-fill::after{
+  content:'';
+  position:absolute;
+  right:-6px;
+  top:50%;
+  transform:translateY(-50%);
+  width:12px;height:12px;
+  background:var(--accent);
+  border-radius:50%;
+  pointer-events:none;
 }
-
-/* ADDED — circular thumb on progress bar */
-.prog-fill::after {
-  content: '';
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
+.time-row{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--dim);}
+.controls{display:flex;align-items:center;gap:1.25rem;margin-top:1.25rem;}
+.ctrl{background:none;border:none;color:var(--muted);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;transition:color 0.15s;}
+.ctrl:hover{color:var(--accent);}
+.ctrl.play{
+  width:38px;height:38px;
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--accent);
+  transition:all 0.15s;
 }
 .ctrl.play:hover{background:var(--accent);color:var(--bg);}
 .vol-wrap{display:flex;align-items:center;gap:0.5rem;margin-left:auto;}
@@ -149,7 +150,6 @@ nav{
   width:12px;height:12px;
   background:var(--accent);cursor:pointer;border-radius:0;
 }
-
 /* PLAYLIST */
 .playlist{
   border:1px solid var(--border);
