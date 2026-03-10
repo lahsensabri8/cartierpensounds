@@ -327,19 +327,28 @@ const vol = document.getElementById("vol");
 
 let dragging = false;
 
-function seek(e) {
+function getSeekPct(e) {
   const rect = progWrap.getBoundingClientRect();
   const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
-  const pct = x / rect.width;
-  progFill.style.width = (pct * 100) + '%';
-  audio._seekPct = pct;
+  return x / rect.width;
 }
 
-document.addEventListener('mouseup', () => {
-  if (dragging && audio._seekPct !== undefined) {
-    audio.currentTime = audio._seekPct * audio.duration;
-    audio._seekPct = undefined;
-  }
+progWrap.addEventListener('mousedown', (e) => {
+  dragging = true;
+  progFill.style.transition = 'none';
+  progFill.style.width = (getSeekPct(e) * 100) + '%';
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (!dragging) return;
+  progFill.style.width = (getSeekPct(e) * 100) + '%';
+});
+
+document.addEventListener('mouseup', (e) => {
+  if (!dragging) return;
+  const pct = getSeekPct(e);
+  audio.currentTime = pct * audio.duration;
+  progFill.style.transition = '';
   dragging = false;
 });
   
