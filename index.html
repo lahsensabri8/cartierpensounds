@@ -345,16 +345,30 @@ progWrap.addEventListener('mousedown', (e) => {
   progFill.style.transition = 'none';
   progFill.style.width = (getSeekPct(e) * 100) + '%';
 });
+progWrap.addEventListener('touchstart', (e) => {
+  dragging = true;
+  progFill.style.transition = 'none';
+  progFill.style.width = (getSeekPct(e.touches[0]) * 100) + '%';
+}, { passive: true });
 
 document.addEventListener('mousemove', (e) => {
   if (!dragging) return;
   progFill.style.width = (getSeekPct(e) * 100) + '%';
 });
+document.addEventListener('touchmove', (e) => {
+  if (!dragging) return;
+  progFill.style.width = (getSeekPct(e.touches[0]) * 100) + '%';
+}, { passive: true });
 
 document.addEventListener('mouseup', (e) => {
   if (!dragging) return;
-  const pct = getSeekPct(e);
-  audio.currentTime = pct * audio.duration;
+  audio.currentTime = getSeekPct(e) * audio.duration;
+  progFill.style.transition = '';
+  dragging = false;
+});
+document.addEventListener('touchend', (e) => {
+  if (!dragging) return;
+  audio.currentTime = getSeekPct(e.changedTouches[0]) * audio.duration;
   progFill.style.transition = '';
   dragging = false;
 });
